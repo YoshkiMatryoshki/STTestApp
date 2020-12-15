@@ -62,16 +62,6 @@ namespace STTestApp
             };
 
 
-            //TEST Write stuff
-            //using(var db = new WorkersContext())
-            //{
-            //    db.Database.EnsureDeleted();
-            //    db.Database.EnsureCreated();
-            //    db.Workers.AddRange(top1, manager, employee);
-            //    db.SaveChanges();
-            //}
-
-
             //TEST read stuff
             List<Worker> hierarchy = new List<Worker>();
             using(var db = new WorkersContext())
@@ -91,7 +81,7 @@ namespace STTestApp
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SalaryWindow salaryWindow = new SalaryWindow(TEST[0]);
+            SalaryWindow salaryWindow = new SalaryWindow(TEST[WorkerList.SelectedIndex]);
             salaryWindow.ShowDialog();
         }
     }
