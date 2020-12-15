@@ -78,7 +78,10 @@ namespace STTestApp
                 hierarchy = db.Workers.Include(e => e.Subordinates).Include(e => e.WorkerGroup).ToList();
             }
             this.DataContext = hierarchy;
-
+            foreach(var worker in hierarchy)
+            {
+                double salary = worker.GetSalary(DateTime.Today);
+            }
 
 
             var xd = 1;
