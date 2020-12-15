@@ -34,14 +34,24 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <ListBox x:Name="WorkerList" ItemsSource="{Binding}" >
+                <ListBox x:Name="WorkerList" ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding WorkerName}"/>
-                                <TextBlock Text="{Binding HiringDate}"/>
-                                <TextBlock Text="{Binding WorkerGroup.GroupName}"/>
-                            </StackPanel>
+                            <Border BorderBrush="BlueViolet" BorderThickness="0 0 0 1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" MinWidth="150"/>
+                                        <ColumnDefinition Width="*" MinWidth="150"/>
+                                        <ColumnDefinition Width="*" MinWidth="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <TextBlock Grid.Column="0" Margin="10 0 10 0" Text="{Binding WorkerName}"/>
+                                    <!--юзаем конвертер для более удобного отображения даты найма-->
+                                    <TextBlock Grid.Column="1" Margin="10 0 10 0" Text="{Binding HiringDate,
+                                        Converter={x:Static local:DateTimeConverter.Instance}}"/>
+                                    <TextBlock Grid.Column="2" Margin="10 0 10 0" Text="{Binding WorkerGroup.GroupName}"/>
+                                </Grid>
+                            </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

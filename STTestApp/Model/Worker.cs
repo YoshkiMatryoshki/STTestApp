@@ -38,10 +38,8 @@ namespace STTestApp.Model
         private ICollection<Worker> subordinates;
         public ICollection<Worker> Subordinates
         {
-            get
-            {
-                return canHaveSubordinates ? subordinates : null;
-            }
+
+            get => canHaveSubordinates ? subordinates : null;
             set
             {
                 subordinates = canHaveSubordinates ? value : null;
