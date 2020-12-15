@@ -21,7 +21,7 @@ namespace STTestApp.Model
         /// <summary>
         /// Разрешено ли иметь кого-л в подчинении. (Employee - false)
         /// </summary>
-        public bool canHaveSubordinates { get; private set; }
+        public bool canHaveSubordinates { get; protected set; }
         /// <summary>
         /// Список сотрудников, находящихся в подчинении у thisWorkera
         /// </summary>
@@ -41,10 +41,19 @@ namespace STTestApp.Model
 
         #region Группа работников
         public int WorkerGroupId { get; private set; }
-        public WorkerGroup WorkerGroup { get; private set; }
+        public WorkerGroup WorkerGroup { get; protected set; }
         #endregion
 
-
+        #region Конструкторы
+        /// <summary>
+        /// Конструктор на базе рабочей группы
+        /// </summary>
+        /// <param name="workerGroup">Рабочая группа</param>
+        public Worker(WorkerGroup workerGroup)
+        {
+            WorkerGroup = workerGroup;
+        }
+        #endregion
         #region Методы 
         /// <summary>
         /// Вычисляет зп с учетом выслуги для определенной даты
