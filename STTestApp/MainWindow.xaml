@@ -53,7 +53,7 @@
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="Info" HorizontalAlignment="Center"/>
                             <Button Content="Подчиненные"/>
-                            <Button Content="Расчет ЗП"/>
+                            <Button Content="Расчет ЗП" Click="Button_Click"/>
                             <Button Content="Расчет ЗП для всех"/>
                         </StackPanel>
                     </Border>

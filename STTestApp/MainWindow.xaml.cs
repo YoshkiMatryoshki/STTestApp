@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using STTestApp.Model;
-
+using STTestApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +23,7 @@ namespace STTestApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Worker> TEST { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -78,13 +79,20 @@ namespace STTestApp
                 hierarchy = db.Workers.Include(e => e.Subordinates).Include(e => e.WorkerGroup).ToList();
             }
             this.DataContext = hierarchy;
-            foreach(var worker in hierarchy)
-            {
-                double salary = worker.GetSalary(DateTime.Today);
-            }
+            TEST = hierarchy;
 
 
             var xd = 1;
+        }
+        /// <summary>
+        /// Вызов диалогового окна для расчета зп выбранного сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SalaryWindow salaryWindow = new SalaryWindow(TEST[0]);
+            salaryWindow.ShowDialog();
         }
     }
 }

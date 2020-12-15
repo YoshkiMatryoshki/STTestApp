@@ -8,7 +8,7 @@ namespace STTestApp.Model
     /// Группа работников с информацией о бонусах за выслугу, % от зп подчиненных 
     /// и (потенциально) другой информацией
     /// </summary>
-    class WorkerGroup
+    public class WorkerGroup
     {
         #region Свойства
         public int WorkerGroupId { get; set; }

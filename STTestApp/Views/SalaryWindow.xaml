@@ -1,0 +1,50 @@
+﻿<Window x:Class="STTestApp.Views.SalaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STTestApp.Views"
+        mc:Ignorable="d"
+        Title="SalaryWindow" Height="450" Width="300" SizeToContent="Height">
+    <!--Окно дял расчета Зп отдельного сотрудника-->
+    <!--Стили-->
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5 7 5 7"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Border Margin="5">
+        <StackPanel Orientation="Vertical">
+            <!--Информация о сотруднике-->
+            <Border Padding="10" BorderBrush="BlueViolet"  BorderThickness="2" CornerRadius="10">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding WorkerName}" FontSize="26" FontWeight="DemiBold"/>
+                    <TextBlock Text="{Binding WorkerGroup.GroupName}"/>
+                </StackPanel>
+            </Border>
+            <!--Заработная плата-->
+            <Border Margin="0 10 0 10" BorderThickness="2" BorderBrush="BlueViolet" CornerRadius="10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="ЗП:" />
+                    <TextBlock Margin="20 0 0 0" Text="20000руб"/>
+                </StackPanel>
+            </Border>
+            <!--Выбор даты для расчета-->
+            <DatePicker FontSize="20">
+                
+            </DatePicker>
+            <!--КНопка дял возврата к основному окну-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="Button_Click_1">Расчет</Button>
+                <Button Click="Button_Click">Назад</Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Border>
+</Window>

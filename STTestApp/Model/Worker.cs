@@ -8,7 +8,7 @@ namespace STTestApp.Model
     /// Работник с зарплатой, начисляющейся за выслугу лет.  
     /// Подчиняется Boss. Подчиненные в зависимости от canhaveSubordinates
     /// </summary>
-    class Worker
+    public class Worker
     {
         #region Базовые свойства: Id, Имя, дата вербовки
 
