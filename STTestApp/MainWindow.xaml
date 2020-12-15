@@ -19,40 +19,55 @@
     </Window.Resources>
     
     <Border Margin="10">
-        <!--Grid для разделения на область кнопок и область представления-->
-        <Grid Margin="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <!--Панель Заголовок - контент-->
+        <StackPanel Orientation="Vertical">
 
-            <!--Панель с кнопками-->
-            <StackPanel Margin="10" Orientation="Vertical" Grid.Column="1">
-                <!--Группа кнопок для получения информации-->
-                <Border CornerRadius="5" Margin="0 30 0 30" 
-                        Background="#FF709BC1" Padding="5" >
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Info" HorizontalAlignment="Center"/>
-                        <Button Content="Подчиненные"/>
-                        <Button Content="Расчет ЗП"/>
-                        <Button Content="Расчет ЗП для всех"/>
-                    </StackPanel>
-                </Border>
-                <!--Группа кнопок для обращения к БД-->
-                <Border CornerRadius="5" Margin="0 10 0 30" 
-                        Background="#FF709BC1" Padding="5" >
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Сотрудники" HorizontalAlignment="Center"/>
-                        <Button Content="Добавить"/>
-                        <Button Content="Редактировать"/>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-            
-            <!---->
-            
-        </Grid>
-        
-        
+            <TextBlock Text="Сотрудники" FontSize="25" 
+                       HorizontalAlignment="Center" 
+                       Margin="0 10 0 20"/>
+
+
+            <!--Grid для разделения на область кнопок и область представления-->
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListBox x:Name="WorkerList" ItemsSource="{Binding}" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding WorkerName}"/>
+                                <TextBlock Text="{Binding HiringDate}"/>
+                                <TextBlock Text="{Binding WorkerGroup.Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <!--Панель с кнопками-->
+                <StackPanel VerticalAlignment="Bottom" Margin="10" Orientation="Vertical" Grid.Column="1">
+                    <!--Группа кнопок для получения информации-->
+                    <Border CornerRadius="5" Margin="0 30 0 30" 
+                            Background="#FF709BC1" Padding="5" >
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Info" HorizontalAlignment="Center"/>
+                            <Button Content="Подчиненные"/>
+                            <Button Content="Расчет ЗП"/>
+                            <Button Content="Расчет ЗП для всех"/>
+                        </StackPanel>
+                    </Border>
+                    <!--Группа кнопок для обращения к БД-->
+                    <Border CornerRadius="5" Margin="0 10 0 30" 
+                            Background="#FF709BC1" Padding="5" >
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Сотрудники" HorizontalAlignment="Center"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Редактировать"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Border>
 </Window>
