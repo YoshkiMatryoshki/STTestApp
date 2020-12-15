@@ -40,7 +40,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding WorkerName}"/>
                                 <TextBlock Text="{Binding HiringDate}"/>
-                                <TextBlock Text="{Binding WorkerGroup.Name}"/>
+                                <TextBlock Text="{Binding WorkerGroup.GroupName}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
