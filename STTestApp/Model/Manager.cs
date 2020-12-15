@@ -13,6 +13,13 @@ namespace STTestApp.Model
 
         #region Конструкторы
         /// <summary>
+        /// default const
+        /// </summary>
+        public Manager()
+        {
+
+        }
+        /// <summary>
         /// Конструктор на базе ролительского класса, 
         /// разрешающий наличие подчиненных
         /// </summary>

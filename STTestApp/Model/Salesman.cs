@@ -8,6 +8,13 @@ namespace STTestApp.Model
     {
         #region Конструкторы
         /// <summary>
+        /// default const
+        /// </summary>
+        public Salesman()
+        {
+
+        }
+        /// <summary>
         /// КОнструктор на базе родителя, разрешает наличие подчиненных
         /// </summary>
         /// <param name="workerGroup">Рабочая группа</param>

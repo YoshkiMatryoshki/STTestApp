@@ -13,6 +13,13 @@ namespace STTestApp.Model
 
         #region Конструкторы
         /// <summary>
+        /// default const
+        /// </summary>
+        public Employee()
+        {
+
+        }
+        /// <summary>
         /// Конструктор, устанавливающий запрет на наличие подчиненных
         /// </summary>
         /// <param name="workerGroup"></param>

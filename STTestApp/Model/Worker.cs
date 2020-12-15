@@ -18,6 +18,16 @@ namespace STTestApp.Model
         #endregion
 
         #region Для иерархии отношений начальник - подчиненный
+
+        /// <summary>
+        /// id руководителя
+        /// </summary>
+        public int? BossId { get; set; }
+        /// <summary>
+        /// нав. свойство руководитель
+        /// </summary>
+        public virtual Worker Boss { get; set; }
+
         /// <summary>
         /// Разрешено ли иметь кого-л в подчинении. (Employee - false)
         /// </summary>
@@ -46,6 +56,13 @@ namespace STTestApp.Model
 
         #region Конструкторы
         /// <summary>
+        /// default const
+        /// </summary>
+        public Worker()
+        {
+
+        }
+        /// <summary>
         /// Конструктор на базе рабочей группы
         /// </summary>
         /// <param name="workerGroup">Рабочая группа</param>
@@ -54,6 +71,8 @@ namespace STTestApp.Model
             WorkerGroup = workerGroup;
         }
         #endregion
+
+
         #region Методы 
         /// <summary>
         /// Вычисляет зп с учетом выслуги для определенной даты
