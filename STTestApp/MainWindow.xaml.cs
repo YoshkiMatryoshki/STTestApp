@@ -63,14 +63,5 @@ namespace STTestApp
 
 
         }
-        /// <summary>
-        /// Вызов диалогового окна для расчета зп выбранного сотрудника
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            salaryWindow.ShowDialog();
-        }
     }
 }

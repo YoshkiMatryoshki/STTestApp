@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModel\Commands\" />
-  </ItemGroup>
-
 </Project>

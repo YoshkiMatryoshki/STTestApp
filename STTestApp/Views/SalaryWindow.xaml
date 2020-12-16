@@ -25,23 +25,30 @@
             <Border Padding="10" BorderBrush="BlueViolet"  BorderThickness="2" CornerRadius="10">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="{Binding WorkerName}" FontSize="26" FontWeight="DemiBold"/>
-                    <TextBlock Text="{Binding WorkerGroup.GroupName}"/>
+                    <TextBlock Text="{Binding WorkerGroupName}"/>
                 </StackPanel>
             </Border>
             <!--Заработная плата-->
             <Border Margin="0 10 0 10" BorderThickness="2" BorderBrush="BlueViolet" CornerRadius="10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="ЗП:" />
-                    <TextBlock Margin="20 0 0 0" Text="20000руб"/>
+                    <TextBlock Margin="20 0 0 0" Text="{Binding Salary}"/>
+                </StackPanel>
+            </Border>
+            <!--Стаж на выбранную дату-->
+            <Border Margin="0 0 0 10" BorderThickness="2" BorderBrush="BlueViolet" CornerRadius="10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Стаж:" />
+                    <TextBlock Margin="20 0 0 0" Text="{Binding WorkExp}"/>
                 </StackPanel>
             </Border>
             <!--Выбор даты для расчета-->
-            <DatePicker FontSize="20">
+            <DatePicker FontSize="20" SelectedDate="{Binding CountDate}">
                 
             </DatePicker>
             <!--КНопка дял возврата к основному окну-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Click="Button_Click_1">Расчет</Button>
+                <Button Command="{Binding CountSalary}">Расчет</Button>
                 <Button Click="Button_Click">Назад</Button>
             </StackPanel>
         </StackPanel>

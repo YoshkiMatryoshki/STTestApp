@@ -1,4 +1,5 @@
 ﻿using STTestApp.Model;
+using STTestApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,13 +19,11 @@ namespace STTestApp.Views
     /// </summary>
     public partial class SalaryWindow : Window
     {
-        public Worker Worker { get; private set; }
 
         public SalaryWindow(Worker worker)
         {
             InitializeComponent();
-            Worker = worker;
-            DataContext = Worker;
+            DataContext = new SalaryWindowViewModel(worker);
         }
         /// <summary>
         /// Возврат к предыдущему окну
@@ -34,12 +33,6 @@ namespace STTestApp.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
-        }
-        //TEST Расчет зп
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var bttn = (Button)sender;
-            bttn.Content = Worker.GetSalary(DateTime.Today);
         }
     }
 }
