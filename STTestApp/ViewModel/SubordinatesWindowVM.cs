@@ -67,6 +67,7 @@ namespace STTestApp.ViewModel
             AllSubsShowed = false;
             //команды
             ShowOnlyFans = new RelayCommand(ShowDirectSubordinates, CheckDirSubsMode);
+            ShowAllSubs = new RelayCommand(ShowAllSubordinates, CheckAllSubsMode);
         }
         #endregion
 
@@ -86,7 +87,7 @@ namespace STTestApp.ViewModel
         /// </summary>
         private void ShowAllSubordinates()
         {
-
+            Subordinates = worker.GetAllSubordinates();
             AllSubsShowed = true;
         }
         /// <summary>

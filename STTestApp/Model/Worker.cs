@@ -108,7 +108,7 @@ namespace STTestApp.Model
         /// Метод для рекурсивного сбора всех "наследников" всех уровней
         /// </summary>
         /// <returns>такой себе список подчиненных</returns>
-        protected List<Worker> GetAllSubordinates()
+        public List<Worker> GetAllSubordinates()
         {
             List<Worker> subs = new List<Worker>();
             if (!canHaveSubordinates)

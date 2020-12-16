@@ -1,0 +1,86 @@
+﻿<Window x:Class="STTestApp.Views.AllSalaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STTestApp.Views"
+        mc:Ignorable="d"
+        Title="AllSalaryWindow" Height="450" Width="600">
+    <!--Окно для отображения зп группы сотрудников-->
+    <!--Стили-->
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5 7 30 7"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
+
+    <Border Margin="5">
+        <StackPanel Orientation="Vertical">
+            <!--Указание даты расчета-->
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Text="Выберите дату:"/>
+                <DatePicker Margin="20 0 0 0" FontSize="20" SelectedDate="{Binding CountDate}">
+                    <!--Выбор даты только через клик-->
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="IsReadOnly" Value="True"/>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+            </StackPanel>
+            <!--Отображение в виде таблицы-->
+            <ListView HorizontalAlignment="Stretch" FontSize="16">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            
+                            <!-- Колонка ИМЯ-->
+                            <GridViewColumn Header="Имя" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  Text="ТЕСТ"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!-- Колонка ГРУППА-->
+                            <GridViewColumn Header="Группа" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  Text="ТЕСТ"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!-- Колонка СТАЖ-->
+                            <GridViewColumn Header="Стаж" Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  Text="ТЕСТ"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!-- Колонка ЗП-->
+                            <GridViewColumn Header="Заработная плата" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  Text="ТЕСТ"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <!--Кнопка назад -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="Button_Click">Назад</Button>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+    
+</Window>

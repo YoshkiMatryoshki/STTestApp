@@ -51,7 +51,7 @@ namespace STTestApp.ViewModel
         /// Выделен ли работник из списка
         /// Влияет на CanExecute для команд
         /// </summary>
-        public bool isWorkerSelected
+        public bool IsWorkerSelected
         {
             get
             {
@@ -90,7 +90,7 @@ namespace STTestApp.ViewModel
 
             //Команды
             CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
-            ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSelection);
+            ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSubSelection);
 
         }
         #endregion
@@ -121,7 +121,15 @@ namespace STTestApp.ViewModel
         /// <returns>true если есть команду можно запускать</returns>
         private bool CheckSelection()
         {
-            return isWorkerSelected;
+            return IsWorkerSelected;
+        }
+        /// <summary>
+        /// В отличие от CheckSelection заврещвает запуск команды просмотра подчиненных для Employee
+        /// </summary>
+        /// <returns>true если можно посмотреть подчиненных сотрудника</returns>
+        private bool CheckSubSelection()
+        {
+            return IsWorkerSelected && !(SelectedWorker is Employee);
         }
 
         #endregion
