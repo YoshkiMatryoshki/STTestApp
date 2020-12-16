@@ -51,7 +51,7 @@ namespace STTestApp.ViewModel
         /// Выделен ли работник из списка
         /// Влияет на CanExecute для команд
         /// </summary>
-        public bool isWorkerSelected
+        public bool IsWorkerSelected
         {
             get
             {
@@ -67,7 +67,14 @@ namespace STTestApp.ViewModel
         /// произвести расчет зп выделенного сотрудника (SelectedWorker)
         /// </summary>
         public ICommand CheckSalaryCommand { get; private set; }
-        public ICommand TESTCmd { get; private set; }
+        /// <summary>
+        /// Запускает дочернее окно, показывающее подчиненных выбранного сотрудника
+        /// </summary>
+        public ICommand ShowSubsCommand { get; private set; }
+        /// <summary>
+        /// Запускает окно с расчетом зп всех сотрудников
+        /// </summary>
+        public ICommand CountSumSalary { get; private set; }
 
         #endregion
 
@@ -87,24 +94,39 @@ namespace STTestApp.ViewModel
 
             //Команды
             CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
-            TESTCmd = new BaseCommand(ROFL);
+            ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSubSelection);
+            CountSumSalary = new RelayCommand(ShowWorkersSalaryWindow, () => { return Workers.ToList().Count > 0 ? true : false; });
+
+
         }
         #endregion
 
 
 
         #region Методы
-        private void ROFL()
+        /// <summary>
+        /// Нарушаем MVVM, но запускаем окно с подчиненными
+        /// </summary>
+        private void ShowSubordinatesWindow()
         {
-            SelectedWorker = null;
+            var newWindow = new SubordinatesWindow(SelectedWorker);
+            newWindow.ShowDialog();
         }
         /// <summary>
         /// Бессовестное нарушение паттерна MVVM
         /// </summary>
         private void ShowSalaryWindow()
         {
-            var xd = new SalaryWindow(SelectedWorker);
-            xd.ShowDialog();
+            var MVVMFriendlyWindow = new SalaryWindow(SelectedWorker);
+            MVVMFriendlyWindow.ShowDialog();
+        }
+        /// <summary>
+        /// Открываем окно для подсчета всех зпшек
+        /// </summary>
+        private void ShowWorkersSalaryWindow()
+        {
+            var newWindow = new AllSalaryWindow(Workers);
+            newWindow.ShowDialog();
         }
         /// <summary>
         /// Разрешениен а выполнение команд, связанных с выбором сотрудника из списка
@@ -113,7 +135,15 @@ namespace STTestApp.ViewModel
         /// <returns>true если есть команду можно запускать</returns>
         private bool CheckSelection()
         {
-            return isWorkerSelected;
+            return IsWorkerSelected;
+        }
+        /// <summary>
+        /// В отличие от CheckSelection заврещвает запуск команды просмотра подчиненных для Employee
+        /// </summary>
+        /// <returns>true если можно посмотреть подчиненных сотрудника</returns>
+        private bool CheckSubSelection()
+        {
+            return IsWorkerSelected && !(SelectedWorker is Employee);
         }
 
         #endregion
