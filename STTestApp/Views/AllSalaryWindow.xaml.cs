@@ -1,4 +1,6 @@
-﻿using System;
+﻿using STTestApp.Model;
+using STTestApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,10 @@ namespace STTestApp.Views
     /// </summary>
     public partial class AllSalaryWindow : Window
     {
-        public AllSalaryWindow()
+        public AllSalaryWindow(IEnumerable<Worker> workersToCount)
         {
             InitializeComponent();
+            DataContext = new WorkersSalaryWindowViewModel(workersToCount);
         }
         /// <summary>
         /// Возврат к пред окну

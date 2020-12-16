@@ -64,7 +64,7 @@
                             <TextBlock Text="Info" HorizontalAlignment="Center"/>
                             <Button Content="Подчиненные" Command="{Binding ShowSubsCommand}"/>
                             <Button Content="Расчет ЗП" Command="{Binding CheckSalaryCommand}"/>
-                            <Button Content="Расчет ЗП для всех"/>
+                            <Button Content="Расчет ЗП для всех" Command="{Binding CountSumSalary}"/>
                         </StackPanel>
                     </Border>
                     <!--Группа кнопок для обращения к БД-->

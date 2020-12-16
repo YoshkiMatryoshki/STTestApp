@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:STTestApp.Views"
         mc:Ignorable="d"
-        Title="AllSalaryWindow" Height="450" Width="600">
+        Title="AllSalaryWindow" Height="450" Width="900" SizeToContent="Width">
     <!--Окно для отображения зп группы сотрудников-->
     <!--Стили-->
     <Window.Resources>
@@ -35,47 +35,34 @@
                 </DatePicker>
             </StackPanel>
             <!--Отображение в виде таблицы-->
-            <ListView HorizontalAlignment="Stretch" FontSize="16">
+            <ListView ItemsSource="{Binding WorkerInfos}" HorizontalAlignment="Stretch" FontSize="16">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            
-                            <!-- Колонка ИМЯ-->
-                            <GridViewColumn Header="Имя" Width="200">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock  Text="ТЕСТ"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <!-- Колонка ГРУППА-->
-                            <GridViewColumn Header="Группа" Width="150">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock  Text="ТЕСТ"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <!-- Колонка СТАЖ-->
-                            <GridViewColumn Header="Стаж" Width="50">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock  Text="ТЕСТ"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                            <GridViewColumn Header="Имя" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Группа" Width="150" DisplayMemberBinding="{Binding Group}"/>
+                            <GridViewColumn Header="Стаж" Width="50" DisplayMemberBinding="{Binding Exp}"/>
+                            <GridViewColumn Header="Ставка" Width="100" DisplayMemberBinding="{Binding BaseSalary}"/>
+                            <GridViewColumn Header="Всего бонус" Width="200" DisplayMemberBinding="{Binding Bonus}"/>
                             <!-- Колонка ЗП-->
                             <GridViewColumn Header="Заработная плата" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock  Text="ТЕСТ"/>
+                                        <TextBlock FontSize="22" FontWeight="Bold"  Text="{Binding Salary}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+
                         </GridView.Columns>
                     </GridView>
                 </ListView.View>
             </ListView>
+            <!--ИТОГИ-->
+            <StackPanel Margin="0 30 40 0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock HorizontalAlignment="Right" Text="Итого: "/>
+                <TextBox  FontSize="26" FontWeight="Bold" IsReadOnly="True" Text="{Binding SumSalary}"/>
+            </StackPanel>
+
             <!--Кнопка назад -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Click="Button_Click">Назад</Button>

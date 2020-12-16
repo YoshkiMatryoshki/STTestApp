@@ -71,6 +71,10 @@ namespace STTestApp.ViewModel
         /// Запускает дочернее окно, показывающее подчиненных выбранного сотрудника
         /// </summary>
         public ICommand ShowSubsCommand { get; private set; }
+        /// <summary>
+        /// Запускает окно с расчетом зп всех сотрудников
+        /// </summary>
+        public ICommand CountSumSalary { get; private set; }
 
         #endregion
 
@@ -91,6 +95,8 @@ namespace STTestApp.ViewModel
             //Команды
             CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
             ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSubSelection);
+            CountSumSalary = new RelayCommand(ShowWorkersSalaryWindow, () => { return Workers.ToList().Count > 0 ? true : false; });
+
 
         }
         #endregion
@@ -113,6 +119,14 @@ namespace STTestApp.ViewModel
         {
             var MVVMFriendlyWindow = new SalaryWindow(SelectedWorker);
             MVVMFriendlyWindow.ShowDialog();
+        }
+        /// <summary>
+        /// Открываем окно для подсчета всех зпшек
+        /// </summary>
+        private void ShowWorkersSalaryWindow()
+        {
+            var newWindow = new AllSalaryWindow(Workers);
+            newWindow.ShowDialog();
         }
         /// <summary>
         /// Разрешениен а выполнение команд, связанных с выбором сотрудника из списка
