@@ -62,9 +62,9 @@
                             Background="#FF709BC1" Padding="5" >
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="Info" HorizontalAlignment="Center"/>
-                            <Button Content="Подчиненные"/>
+                            <Button Content="Подчиненные" Command="{Binding ShowSubsCommand}"/>
                             <Button Content="Расчет ЗП" Command="{Binding CheckSalaryCommand}"/>
-                            <Button Content="Расчет ЗП для всех" Command="{Binding TESTCmd}"/>
+                            <Button Content="Расчет ЗП для всех"/>
                         </StackPanel>
                     </Border>
                     <!--Группа кнопок для обращения к БД-->

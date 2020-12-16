@@ -7,47 +7,9 @@ using System.Windows.Input;
 
 namespace STTestApp.ViewModel
 {
-    class SalaryWindowViewModel : BaseViewModel
+    class SalaryWindowViewModel : WorkerBasedViewModel
     {
         #region Поля и Св-ва
-
-        /// <summary>
-        /// Тот самый переданный работник
-        /// </summary>
-        private Worker worker;
-
-        /// <summary>
-        /// Имя отображаемого работника
-        /// </summary>
-        private string workerName;
-        public string WorkerName
-        {
-            get => workerName;
-            set
-            {
-                if (workerName == value)
-                    return;
-                workerName = value;
-                OnPropertyChanged(nameof(WorkerName));
-            }
-        }
-
-        /// <summary>
-        /// Название группы, к которой относится пользователь
-        /// (не музыкальной ахахахахаххахаха)
-        /// </summary>
-        private string workerGroupName;
-        public string WorkerGroupName
-        {
-            get => workerGroupName;
-            set
-            {
-                if (workerGroupName == value)
-                    return;
-                workerGroupName = value;
-                OnPropertyChanged(nameof(WorkerGroupName));
-            }
-        }
 
         /// <summary>
         /// Заработная плата
@@ -117,18 +79,15 @@ namespace STTestApp.ViewModel
 
         #region Конструкторы
         /// <summary>
-        /// Конструктор на базе посланного сотрудника
+        /// Конструктор с доп инфой соответствующей данной VM
         /// </summary>
-        public SalaryWindowViewModel(Worker worker)
+        public SalaryWindowViewModel(Worker worker) : base(worker)
         {
-            this.worker = worker;
-            WorkerName = worker.WorkerName;
-            WorkerGroupName = worker.WorkerGroup.GroupName;
-            CountDate = DateTime.Today;
-            
+            CountDate = DateTime.Today;    
             //Команда
             CountSalary = new BaseCommand(LookAtThisDudeSalary);
         }
+
         #endregion
 
         #region Методы

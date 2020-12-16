@@ -44,9 +44,14 @@
             </Border>
             <!--Выбор даты для расчета-->
             <DatePicker FontSize="20" SelectedDate="{Binding CountDate}">
-                
+                <!--Выбор даты только через клик-->
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </DatePicker.Resources>
             </DatePicker>
-            <!--КНопка дял возврата к основному окну-->
+            <!--Кнопки дял возврата к основному окну и расчету зп -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Command="{Binding CountSalary}">Расчет</Button>
                 <Button Click="Button_Click">Назад</Button>

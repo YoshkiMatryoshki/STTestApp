@@ -67,7 +67,10 @@ namespace STTestApp.ViewModel
         /// произвести расчет зп выделенного сотрудника (SelectedWorker)
         /// </summary>
         public ICommand CheckSalaryCommand { get; private set; }
-        public ICommand TESTCmd { get; private set; }
+        /// <summary>
+        /// Запускает дочернее окно, показывающее подчиненных выбранного сотрудника
+        /// </summary>
+        public ICommand ShowSubsCommand { get; private set; }
 
         #endregion
 
@@ -87,24 +90,29 @@ namespace STTestApp.ViewModel
 
             //Команды
             CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
-            TESTCmd = new BaseCommand(ROFL);
+            ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSelection);
+
         }
         #endregion
 
 
 
         #region Методы
-        private void ROFL()
+        /// <summary>
+        /// Нарушаем MVVM, но запускаем окно с подчиненными
+        /// </summary>
+        private void ShowSubordinatesWindow()
         {
-            SelectedWorker = null;
+            var newWindow = new SubordinatesWindow(SelectedWorker);
+            newWindow.ShowDialog();
         }
         /// <summary>
         /// Бессовестное нарушение паттерна MVVM
         /// </summary>
         private void ShowSalaryWindow()
         {
-            var xd = new SalaryWindow(SelectedWorker);
-            xd.ShowDialog();
+            var MVVMFriendlyWindow = new SalaryWindow(SelectedWorker);
+            MVVMFriendlyWindow.ShowDialog();
         }
         /// <summary>
         /// Разрешениен а выполнение команд, связанных с выбором сотрудника из списка
