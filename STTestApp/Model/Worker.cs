@@ -49,7 +49,7 @@ namespace STTestApp.Model
 
         #region Группа работников
         public int WorkerGroupId { get; private set; }
-        public WorkerGroup WorkerGroup { get; protected set; }
+        public virtual WorkerGroup WorkerGroup { get; protected set; }
         #endregion
 
         #region Конструкторы
@@ -66,7 +66,8 @@ namespace STTestApp.Model
         /// <param name="workerGroup">Рабочая группа</param>
         public Worker(WorkerGroup workerGroup)
         {
-            WorkerGroup = workerGroup;
+            //WorkerGroup = workerGroup;
+            WorkerGroupId = workerGroup.WorkerGroupId;
         }
         #endregion
 

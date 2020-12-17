@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:STTestApp.Views"
         mc:Ignorable="d"
-        Title="AllSalaryWindow" Height="450" Width="900" SizeToContent="Width">
+        Title="AllSalaryWindow" Height="450" Width="900" SizeToContent="WidthAndHeight">
     <!--Окно для отображения зп группы сотрудников-->
     <!--Стили-->
     <Window.Resources>
@@ -58,7 +58,7 @@
                 </ListView.View>
             </ListView>
             <!--ИТОГИ-->
-            <StackPanel Margin="0 30 40 0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Margin="0 10 40 30" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock HorizontalAlignment="Right" Text="Итого: "/>
                 <TextBox  FontSize="26" FontWeight="Bold" IsReadOnly="True" Text="{Binding SumSalary}"/>
             </StackPanel>

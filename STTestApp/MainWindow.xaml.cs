@@ -31,15 +31,18 @@ namespace STTestApp
 
             var EmployeesGroup = new WorkerGroup(15000,0.03,0.3,null)
             {
-                GroupName = "Employee"
+                GroupName = "Employee",
+                WorkerGroupId = 1
             };
             var ManagersGroup = new WorkerGroup(18000,0.05,0.4,0.005)
             {
-                GroupName = "Manager"
+                GroupName = "Manager",
+                WorkerGroupId = 2
             };
             var SalesmansGroup = new WorkerGroup(17000,0.01,0.35,0.003)
             {
-                GroupName = "Salesman"
+                GroupName = "Salesman",
+                WorkerGroupId = 3
             };
 
             Salesman top1 = new Salesman(SalesmansGroup)
@@ -56,28 +59,22 @@ namespace STTestApp
             };
             Employee employee = new Employee(EmployeesGroup)
             {
-                WorkerName = "Работяга",
-                HiringDate = DateTime.Today.AddYears(-1),
-                Boss = manager
+                WorkerName = "Работяга2",
+                HiringDate = DateTime.Today.AddYears(-3),
+                BossId = 2
             };
 
             List<Worker> test = new List<Worker>();
-            for(int i = 0;i<30; i++)
-            {
-                var employee1 = new Employee(EmployeesGroup)
-                {
-                    WorkerName = $"Работяга {i}",
-                    HiringDate = DateTime.Today.AddYears(-i),
-                    Boss = manager
-                };
-                test.Add(employee1);
-            }
+
+
             using(var db = new WorkersContext())
             {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
-                db.Workers.AddRange(test);
-                db.SaveChanges();
+                //db.Database.EnsureDeleted();
+                //db.Database.EnsureCreated();
+                //db.WorkerGroups.AddRange(EmployeesGroup, SalesmansGroup, ManagersGroup);
+                //db.Workers.AddRange(employee);
+                //db.Workers.AddRange(test);
+                //db.SaveChanges();
             }
 
 

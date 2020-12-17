@@ -26,7 +26,6 @@ namespace STTestApp.Model
 
         }
 
-
         #region Методы
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

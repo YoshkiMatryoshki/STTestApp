@@ -29,6 +29,8 @@ namespace STTestApp.Model
         /// Надбавка в % от зарплаты подчиненных
         /// </summary>
         public double? SubordinateBonus { get; private set; }
+
+
         #endregion
 
 

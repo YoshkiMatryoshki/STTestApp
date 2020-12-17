@@ -163,6 +163,7 @@ namespace STTestApp.ViewModel
             EditedWorker = null;
             SelectedWorkerGroup = null;
             Boss = null;
+            HiringDate = DateTime.Today;
         }
         /// <summary>
         /// Добавляет запись о новом сотруднике
@@ -178,7 +179,7 @@ namespace STTestApp.ViewModel
             };
 
             if (Boss != null)
-                EditedWorker.Boss = this.Boss;
+                EditedWorker.BossId = this.Boss.WorkerId;
             EditedWorker.WorkerName = WorkerName;
             EditedWorker.HiringDate = HiringDate;
 
@@ -194,6 +195,7 @@ namespace STTestApp.ViewModel
             {
                 throw new Exception($"WTF? {e}");
             }
+            DropInputs();
 
 
         }
