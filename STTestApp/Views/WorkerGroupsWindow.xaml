@@ -1,0 +1,52 @@
+﻿<Window x:Class="STTestApp.Views.WorkerGroupsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STTestApp.Views"
+        xmlns:converter="clr-namespace:STTestApp"
+        mc:Ignorable="d"
+        Title="Группы сотрудников" Height="450" Width="900" SizeToContent="WidthAndHeight">
+    <!--Окно для отображения групп работников-->
+    <!--Стили-->
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5 7 30 7"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
+
+    <Border Margin="5">
+        <StackPanel Margin="5 10 5 10" Orientation="Vertical">
+            <!--Отображение в виде таблицы-->
+            <ListView ItemsSource="{Binding Groups}" HorizontalAlignment="Stretch" FontSize="16">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Группа" Width="130" DisplayMemberBinding="{Binding GroupName}"/>
+                            <GridViewColumn Header="Базовая ставка" Width="130"  DisplayMemberBinding="{Binding BaseValue}"/>
+                            <GridViewColumn Header="Надбавка за 1 год стажа" Width="200" DisplayMemberBinding="{Binding BonusValue,
+                                Converter={x:Static converter:DoubleToPercentStringConverter.Instance}}"/>
+                            <GridViewColumn Header="Максимальный бонус от ставки" Width="250" 
+                                            DisplayMemberBinding="{Binding MaxBonus, 
+                                Converter={x:Static converter:DoubleToPercentStringConverter.Instance}}"/>
+                            <GridViewColumn Header="Бонус от зп подчиненных" Width="200"  
+                                            DisplayMemberBinding="{Binding SubordinateBonus,
+                                Converter={x:Static converter:DoubleToPercentStringConverter.Instance}}"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!--Кнопка назад -->
+            <StackPanel Margin="0 30 0 0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="Button_Click">Назад</Button>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

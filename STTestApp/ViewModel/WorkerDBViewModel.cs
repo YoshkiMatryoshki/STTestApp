@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace STTestApp.ViewModel
@@ -111,6 +112,7 @@ namespace STTestApp.ViewModel
                 OnPropertyChanged(nameof(BossCandidates));
             }
         }
+
         #endregion
 
         #region Команды
@@ -190,6 +192,7 @@ namespace STTestApp.ViewModel
                     db.Workers.Add(EditedWorker);
                     db.SaveChanges();
                 }
+                //var res = MessageBox.Show("Сотрудник добавлен");
             }
             catch (Exception e)
             {

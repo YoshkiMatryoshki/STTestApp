@@ -11,8 +11,8 @@ namespace STTestApp
     /// </summary>
     class DateTimeConverter : IValueConverter
     {
-        //singleton
-        public static DateTimeConverter Instance = new DateTimeConverter(); 
+        public static DateTimeConverter Instance = new DateTimeConverter();
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
@@ -28,7 +28,6 @@ namespace STTestApp
 
 
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

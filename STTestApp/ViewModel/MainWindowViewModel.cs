@@ -58,7 +58,8 @@ namespace STTestApp.ViewModel
                 return (SelectedWorker == null) ? false : true;
             }
         }
-        
+
+
         #endregion
 
         #region Команды
@@ -79,6 +80,11 @@ namespace STTestApp.ViewModel
         /// Запуск окна для добавления новог осотрудника в БД
         /// </summary>
         public ICommand AddWorker { get; private set; }
+        /// <summary>
+        /// Запуск окна для просмотра групп работников
+        /// </summary>
+        public ICommand ShowGroupsCommand { get; private set; }
+
         #endregion
 
 
@@ -90,10 +96,7 @@ namespace STTestApp.ViewModel
         public MainWindowViewModel()
         {
             //Подгрузка работничков из бд
-            using (var db = new WorkersContext())
-            {
-                Workers = db.Workers.Include(e => e.Subordinates).Include(e => e.WorkerGroup).ToList();
-            }
+            LoadWorkers();
 
             //Команды
             //CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
@@ -101,9 +104,10 @@ namespace STTestApp.ViewModel
             ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSubSelection);
             CountSumSalary = new RelayCommand(ShowWorkersSalaryWindow, () => { return Workers.ToList().Count > 0 ? true : false; });
             AddWorker = new BaseCommand(AddNewWorkerWindow);
-
+            ShowGroupsCommand = new BaseCommand(ShowGroups);
 
         }
+
         #endregion
 
 
@@ -140,7 +144,27 @@ namespace STTestApp.ViewModel
         {
             var newWindow = new AddWorkerWindow();
             newWindow.ShowDialog();
+            LoadWorkers();
         }
+        /// <summary>
+        /// Подгружает работников из БД
+        /// </summary>
+        private void LoadWorkers()
+        {
+            using (var db = new WorkersContext())
+            {
+                Workers = db.Workers.Include(e => e.Subordinates).Include(e => e.WorkerGroup).ToList();
+            }
+        }
+        /// <summary>
+        /// Открываем окно для просмотра групп сотрудников
+        /// </summary>
+        private void ShowGroups()
+        {
+            var newWindow = new WorkerGroupsWindow();
+            newWindow.ShowDialog();
+        }
+
 
 
         /// <summary>
