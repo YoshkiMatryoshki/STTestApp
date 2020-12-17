@@ -61,6 +61,25 @@ namespace STTestApp
                 Boss = manager
             };
 
+            List<Worker> test = new List<Worker>();
+            for(int i = 0;i<30; i++)
+            {
+                var employee1 = new Employee(EmployeesGroup)
+                {
+                    WorkerName = $"Работяга {i}",
+                    HiringDate = DateTime.Today.AddYears(-i),
+                    Boss = manager
+                };
+                test.Add(employee1);
+            }
+            using(var db = new WorkersContext())
+            {
+                db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
+                db.Workers.AddRange(test);
+                db.SaveChanges();
+            }
+
 
         }
     }

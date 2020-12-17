@@ -34,7 +34,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <ListBox x:Name="WorkerList" ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" >
+                <ListBox MaxHeight="450" x:Name="WorkerList" ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="BlueViolet" BorderThickness="0 0 0 1">

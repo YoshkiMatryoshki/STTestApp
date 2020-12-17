@@ -63,6 +63,13 @@ namespace STTestApp.ViewModel
             WorkerName = worker.WorkerName;
             WorkerGroupName = worker.WorkerGroup.GroupName;
         }
+        /// <summary>
+        /// Дефолтный конструктор без отправленного работника
+        /// </summary>
+        public WorkerBasedViewModel()
+        {
+
+        }
 
         #endregion
 

@@ -93,7 +93,8 @@ namespace STTestApp.ViewModel
             }
 
             //Команды
-            CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
+            //CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, CheckSelection);
+            CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, () => { return IsWorkerSelected; });
             ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSubSelection);
             CountSumSalary = new RelayCommand(ShowWorkersSalaryWindow, () => { return Workers.ToList().Count > 0 ? true : false; });
 
