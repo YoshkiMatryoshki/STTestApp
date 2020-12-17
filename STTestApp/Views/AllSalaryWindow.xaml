@@ -35,7 +35,7 @@
                 </DatePicker>
             </StackPanel>
             <!--Отображение в виде таблицы-->
-            <ListView ItemsSource="{Binding WorkerInfos}" HorizontalAlignment="Stretch" FontSize="16">
+            <ListView MaxHeight="700" ItemsSource="{Binding WorkerInfos}" HorizontalAlignment="Stretch" FontSize="16">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>

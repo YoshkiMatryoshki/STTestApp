@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:STTestApp"
         mc:Ignorable="d"
-        Title="EmployeeInfoApp" Height="600" Width="800" FontSize="14" SizeToContent="Height">
+        Title="STTest" Height="600" Width="800" FontSize="14" SizeToContent="Height">
     <Window.Resources>
         <!--Немного стилей-->
         <Style TargetType="Button">
@@ -40,9 +40,9 @@
                             <Border BorderBrush="BlueViolet" BorderThickness="0 0 0 1">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" MinWidth="150"/>
-                                        <ColumnDefinition Width="*" MinWidth="150"/>
-                                        <ColumnDefinition Width="*" MinWidth="150"/>
+                                        <ColumnDefinition  MinWidth="200"/>
+                                        <ColumnDefinition  MinWidth="150"/>
+                                        <ColumnDefinition  MinWidth="150"/>
                                     </Grid.ColumnDefinitions>
                                     
                                     <TextBlock Grid.Column="0" Margin="10 0 10 0" Text="{Binding WorkerName}"/>
