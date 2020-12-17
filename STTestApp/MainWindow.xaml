@@ -72,7 +72,7 @@
                             Background="#FF709BC1" Padding="5" >
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="Сотрудники" HorizontalAlignment="Center"/>
-                            <Button Content="Добавить"/>
+                            <Button Content="Добавить" Command="{Binding AddWorker}"/>
                             <Button Content="Редактировать"/>
                         </StackPanel>
                     </Border>

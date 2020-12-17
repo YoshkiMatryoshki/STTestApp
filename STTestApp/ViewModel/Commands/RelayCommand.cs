@@ -20,7 +20,11 @@ namespace STTestApp.ViewModel.Commands
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
+        /// <summary>
+        ///  Инициирует команду
+        /// </summary>
+        /// <param name="action">Action, выполняемый командой</param>
+        /// <param name="canExecuteMethod">Проверка на CanExecute. Если результат false - команда недоступна</param>
         public RelayCommand(Action action, Func<bool> canExecuteMethod)
         {
             this.action = action;

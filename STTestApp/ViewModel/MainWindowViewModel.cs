@@ -75,7 +75,10 @@ namespace STTestApp.ViewModel
         /// Запускает окно с расчетом зп всех сотрудников
         /// </summary>
         public ICommand CountSumSalary { get; private set; }
-
+        /// <summary>
+        /// Запуск окна для добавления новог осотрудника в БД
+        /// </summary>
+        public ICommand AddWorker { get; private set; }
         #endregion
 
 
@@ -97,6 +100,7 @@ namespace STTestApp.ViewModel
             CheckSalaryCommand = new RelayCommand(ShowSalaryWindow, () => { return IsWorkerSelected; });
             ShowSubsCommand = new RelayCommand(ShowSubordinatesWindow, CheckSubSelection);
             CountSumSalary = new RelayCommand(ShowWorkersSalaryWindow, () => { return Workers.ToList().Count > 0 ? true : false; });
+            AddWorker = new BaseCommand(AddNewWorkerWindow);
 
 
         }
@@ -129,6 +133,16 @@ namespace STTestApp.ViewModel
             var newWindow = new AllSalaryWindow(Workers);
             newWindow.ShowDialog();
         }
+        /// <summary>
+        /// Открывает окно дял добавления нового сотрудника
+        /// </summary>
+        private void AddNewWorkerWindow()
+        {
+            var newWindow = new AddWorkerWindow();
+            newWindow.ShowDialog();
+        }
+
+
         /// <summary>
         /// Разрешениен а выполнение команд, связанных с выбором сотрудника из списка
         /// (если никого не выделено => запрет

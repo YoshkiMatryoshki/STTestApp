@@ -1,4 +1,5 @@
-﻿using System;
+﻿using STTestApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace STTestApp.Views
         public AddWorkerWindow()
         {
             InitializeComponent();
+            DataContext = new WorkerDBViewModel();
         }
         /// <summary>
         /// Врзврат к предыдущему окну
