@@ -32,6 +32,17 @@ namespace STTestApp.Model
             //base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite("Filename=Omegarofl.db");
         }
+        /// <summary>
+        /// При удалении босса, всем подчиненным в BossId присваивается NULL
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Worker>()
+                .HasOne(b => b.Boss)
+                .WithMany(a => a.Subordinates)
+                .OnDelete(DeleteBehavior.SetNull);
+        }
         #endregion
 
 
