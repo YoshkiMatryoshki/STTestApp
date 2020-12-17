@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:STTestApp.Views"
         mc:Ignorable="d"
-        Title="AllSalaryWindow" Height="450" Width="900" SizeToContent="WidthAndHeight">
+        Title="Зарплата сотрудников" Height="450" Width="900" SizeToContent="WidthAndHeight">
     <!--Окно для отображения зп группы сотрудников-->
     <!--Стили-->
     <Window.Resources>

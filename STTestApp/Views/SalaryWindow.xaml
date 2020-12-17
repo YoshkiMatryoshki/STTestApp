@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:STTestApp.Views"
         mc:Ignorable="d"
-        Title="SalaryWindow" Height="450" Width="300" SizeToContent="Height">
+        Title="Зарплата сотрудника" Height="450" Width="300" SizeToContent="Height">
     <!--Окно дял расчета Зп отдельного сотрудника-->
     <!--Стили-->
     <Window.Resources>

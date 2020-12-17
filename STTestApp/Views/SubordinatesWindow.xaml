@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:STTestApp.Views"
         xmlns:conv="clr-namespace:STTestApp"
         mc:Ignorable="d"
-        Title="SubordinatesWindow" Height="450" Width="500" SizeToContent="Height">
+        Title="Подчиненные" Height="450" Width="500" SizeToContent="Height">
     <!--Окно для отображения подчиненных сотрудника-->
     <!--Стили-->
     <Window.Resources>
