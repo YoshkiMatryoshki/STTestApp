@@ -28,7 +28,7 @@ namespace STTestApp
         {
             InitializeComponent();
             //ПЕРЕСОЗДАЕТ ДБ и заполняет данными
-            //FeedDB();
+            FeedDB();
             DataContext = new MainWindowViewModel();
 
 
